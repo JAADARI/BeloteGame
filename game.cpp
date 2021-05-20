@@ -1,4 +1,4 @@
-#include <Windows.h>
+﻿#include <Windows.h>
 #include <iostream>
 #include <iomanip>
 #include "carte.h"
@@ -102,8 +102,10 @@ void playGame(Hand htab[4],IAauto monIA)
 {	
 	int player, carteJoue, colorPlay, winner, scorePli, scoreA, scoreB;
 	winner = -1;
-	cout << "Belote : nouveau jeu" << endl;
-	cout << "Choisir le joueur qui commence la partie (0 - 3) : ";
+	cout << "\n\n\n\n";
+	cout << "_______________________________________________ BELOTE : NOUVEAU JEU __________________________________________________" << endl;
+	cout << "\n\n";
+	cout << "                                 Choisir le joueur qui commence la partie (1 - 3) : ";
 	cin >> player;
 	int atout = gestionPrise(htab, player,0, monIA);
 	scoreA = 0;
@@ -307,7 +309,12 @@ void playGame(Hand htab[4],IAauto monIA)
 		cout << "Les gagnants sont les Joueurs 0 et 2, avec un score final de " << scoreA << " points" << endl;
 	else
 		cout << "Les gagnants sont les Joueurs 1 et 3, avec un score final de " << scoreB << " points" << endl;
-	cout << " FELICITATIONS ! " << endl;
+	cout << "\n\n\n";
+
+	cout << "              _____________________________ F E L I C I T A T I O N S   ! _______________________________ " << endl;
+
+	
+	
 }
 
 void distribute8(Hand* tabHand)
@@ -343,14 +350,106 @@ void distribute8(Hand* tabHand)
 
 
 int main()  {
-	srand(time(NULL));
 
+	srand(time(NULL));
+	int x;
+	string y;
 	IAauto monIAauto = IAauto(6);
 	Hand tabHand[4];
-	distribute8(tabHand);
+	do
+	{
 
-	playGame(tabHand,monIAauto);
 
+		cout << "\n\n\n\n";
+		cout << "            >>>>>>>>>>>>  |_|_|_|    |_|_|_|_|  |_|          |_|_|    |_|_|_|_|_|  |_|_|_|_|  <<<<<<<<<<<<" << "\n";
+		cout << "            >>>>>>>>>>>>  |_|   |_|  |_|        |_|        |_|   |_|      |_|      |_|        <<<<<<<<<<<<" << "\n";
+		cout << "            >>>>>>>>>>>>  |_|_|_|    |_|_|_|    |_|        |_|   |_|      |_|      |_|_|_|    <<<<<<<<<<<<" << "\n";
+		cout << "            >>>>>>>>>>>>  |_|   |_|  |_|        |_|        |_|   |_|      |_|      |_|        <<<<<<<<<<<<" << "\n";
+		cout << "            >>>>>>>>>>>>  |_|_|_|    |_|_|_|_|  |_|_|_|_|    |_|_|        |_|      |_|_|_|_|  <<<<<<<<<<<<" << "\n\n\n";
+		
+		cout << "________________________________________________________________________________________________________________________" << "\n";
+		cout << "                                     ____________________________________________" << "\n\n\n";
+
+		cout << "                                               | 1 : START NEW GAME !" << "\n\n";
+		cout << "                                               | 2 : REGLE DE JEU " << "\n\n";
+		cout << "                                               | 3 : A PROPOS" << "\n\n";
+		cout << "                                               | 4 : QUITTER" << "\n\n\n";
+		cout << "                                     ____________________________________________" << "\n";
+		cout << "________________________________________________________________________________________________________________________" << "\n\n\n";
+
+		cin >> x;
+
+		switch (x)
+		{
+		case 1:
+			system("CLS");
+
+
+			distribute8(tabHand);
+
+			playGame(tabHand, monIAauto);
+			break;
+		case 3:
+			system("CLS");
+			cout << "\n\n";
+			cout << "____________________________________________________B E L O T E V1.0_____________________________________________________" << "\n";
+
+			cout << "                                       Jeux de BELOTE V1.0 realise par : " << "\n\n";
+			cout << "                                                 I S S A    T A L E B" << "\n\n";
+			cout << "                                                 J A A D A R I    F I R A S" << "\n\n";
+			cout << "                                                 I S S A M    H E D H L I" << "\n\n";
+			cout << "                                       Encadre par madame: " << "\n\n\n";
+			cout << "                                                 B O U K H R I S   I M E N " << "\n\n\n";
+
+			cout << "                        _______________________________________________________________________________" << "\n\n";
+			cout << "                           N a t i o n a l   S c h o o l   f o r   C o m p u t e r   S c i e n c e s    " << "\n";
+			cout << "                        _______________________________________________________________________________ " << "\n\n\n\n";
+			cout << "                                                    2 0 2 0 / 2 0 2 1 " << "\n";
+			
+			break;
+		case 2:
+			system("CLS");
+
+			cout << "DESCRIPTION DE BELOTE :" << "\n\n\n";
+			cout << "La belote est un jeu de contrat qui se joue par equipe de deux." << "\n";
+			cout << "Les plis remportes par les joueurs d’une meme equipe sont donc a additionner." << "\n";
+			cout << "A la fin dune partie, on compte le nombre de points des cartes contenus dans les plis remportes. " << "\n";
+			cout << "On sait alors si lequipe qui a pris est dedans ou a rempli son contrat." << "\n\n\n\n";
+			cout << "Pour jouer a la Belote, il vous faut :" << "\n\n";
+			cout << "- etre 4 joueurs" << "\n";
+			cout << "- Un jeu de cartes classique de 32 cartes." << "\n\n\n\n";
+			cout << "Commencer une partie de Belote :" << "\n\n";
+			cout << "Le joueur qui se trouve a gauche du donneur debute la manche." << "\n";
+			cout << "Chaque joueur est dans l obligation de suivre la couleur demandee. " << "\n";
+			cout << "Si un joueur ne peut pas fournir de carte de la couleur demandee il doit alors couper à l atout. " << "\n";
+			cout << "Au cas ou il n a pas d atout, il doit pisser c est-a-dire jouer une autre carte dans une autre couleur." << "\n";
+			cout << "Il est egalement possible de ne pas jouer de l atout dans le cas ou" << "\n";
+			cout << "le partenaire est maître du pli alors que l on ne possède pas de cartes de la couleur demandee." << "\n";
+			cout << "Le gagnant d’un pli le ramasse et débute le prochain tour. " << "\n";
+			cout << "Quand le cas ou deux joueurs coupent, le second joueur doit obligatoirement surcouper," << "\n";
+			cout << " c est-a-dire fournir un atout plus fort que celui qui est deja sur la table." << "\n";
+			cout << "C est le cas également pour les autres joueurs suivant." << "\n";
+			cout << "Dans le cas ou le joueur n a pas d’atout plus fort," << "\n";
+			cout << "il doit quand meme jouer un atout plus bas si bien sur il en possede un dans son jeu." << "\n";
+
+			break;
+
+
+
+
+		case 4: exit(0);
+			break;
+		default:
+			break;
+		}
+		cout << "\n\n\n\n\n\n";
+		cout << "                        ______________   Vous voulez revenir au menu principal (yes/no) ?   ______________ " << "\n";
+		cin >> y;
+		cout << "\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n";
+	}
+	while (y=="yes");
+
+	exit(0);
 	while(1);
 	return 0;
 }
